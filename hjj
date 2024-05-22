@@ -1,0 +1,25 @@
+  search_engine_list = ['www.google.com', 'www.bing.com', 'www.yahoo.com', 'www.baidu.com', 'www.sogou.com', 'www.so.com']
+    search_engine_value = [0, 0, 0, 0, 0, 0]
+    for key, value in dict_data.items():
+        for i in range(len(search_engine_list)):
+            if search_engine_list[i] in value[1]:
+                search_engine_value[i] += 1
+                break
+
+
+
+    # 绘制搜索引擎使用情况饼图
+    figure_2 = go.Figure(
+        data=[
+            go.Pie(
+                labels=search_engine_list,
+                values=search_engine_value,
+                hole=.3
+            )
+        ]
+    )
+
+
+    return figure_1, figure_2
+
+
