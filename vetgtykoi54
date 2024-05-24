@@ -1,0 +1,7 @@
+  downloadFile(url, fileName, flieId, type) {
+     let link = document.createElement('a');
+     link.style.display = 'none';
+     link.href = baseUrl + '/xxx/xxx/xxx?flieId=' + flieId;
+     document.body.appendChild(link);
+     link.click();
+   },
