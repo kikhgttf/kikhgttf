@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>登录</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/signin.css">
+</head>
+<body>
+ 
+<div class="container">
+ 
+    <form class="form-signin">
+        {% csrf_token %}
+        <h2 class="form-signin-heading">请登录</h2>
+        <label for="inputUser" class="sr-only">用户名</label>
+        <input type="text" id="inputUser" class="form-control" placeholder="用户名" required="" autofocus="" name="user">
+        <label for="inputPassword" class="sr-only">密码</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="密码" required="" name="pwd">
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" value="remember-me"> 记住我
+            </label>
+        </div>
+        <input class="btn btn-lg btn-primary btn-block" id="login" value="登陆">
+    </form>
+ 
+</div> <!-- /container -->
+ 
+ 
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+{#必须先引入jquery，再引入cookie#}
+<script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+{#sweetalert插件#}
+<link rel="stylesheet" href="http://mishengqiang.com/sweetalert/css/sweetalert.css">
+<script src="http://mishengqiang.com/sweetalert/js/sweetalert-dev.js"></script>
+<script>
+    //ajax在发送之前，做的header头。csrfSafeMethod是一个方法名，用来调用的
+    function csrfSafeMethod(method) {
+        // these HTTP methods do not require CSRF protection
+        //这些HTTP方法不需要CSRF保护
+        // 匹配method的请求模式，js正则匹配用test
+        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+    }
+    
+    $('#login').click(function () {
+        $.ajax({
+            url: '/login/',
+            type: 'post',
+            //增加X-CSRFToken的请求头
+            headers:{ "X-CSRFToken":$.cookie('csrftoken') },
+            data: {
+                user: $('[name="user"]').val(),
+                pwd: $('[name="pwd"]').val()
+            },
+            success: function (data) {
+                data = JSON.parse(data);
+                if (data.status) {
+                    swal({
+                        title: '登录成功',
+                        type: 'success',  //展示成功的图片
+                        timer: 500,  //延时500毫秒
+                        showConfirmButton: false  //关闭确认框
+                    }, function () {
+                        window.location.href = data.url;  //跳转后台首页
+                    });
+                }
+                else {
+                    sweetAlert("登录失败！", data.msg, "error");
+                }
+            }
+        })
+    })
+</script>
+ 
+</body>
+</html>
