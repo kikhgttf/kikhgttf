@@ -1,0 +1,15 @@
+<script type="text/javascript">
+    function print(){
+    
+        var bdhtml = window.document.body.innerHTML;
+        
+        var prnhtml = $("#toPrint").html();
+        
+        window.document.body.innerHTML = prnhtml;
+        
+        window.print();
+        
+        window.document.body.innerHTML = bdhtml;
+
+    };
+</script>
