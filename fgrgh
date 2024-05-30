@@ -1,0 +1,40 @@
+using UnityEngine;
+
+/// <summary>
+/// Unity-Vue消息管理脚本
+/// </summary>
+public class MessageManager : MonoBehaviour
+{
+    /// <summary>
+    /// 测试cube游戏物体
+    /// </summary>
+    public GameObject cube;
+
+
+    /// <summary>
+    /// vue设置物体显隐
+    /// </summary>
+    /// <param name="visible"></param>
+    public void Vue_SetVisible(string visible)
+    {
+        if (cube != null)
+        {
+            cube.transform.localScale = visible == "0" ? Vector3.zero : Vector3.one;
+        }
+    }
+
+    /// <summary>
+    /// vue设置颜色
+    /// </summary>
+    /// <param name="htmlColor"></param>
+    public void Vue_SetColor(string htmlColor)
+    {
+        if (cube != null)
+        {
+            if (ColorUtility.TryParseHtmlString(htmlColor,out Color color))
+            {
+                cube.GetComponent<MeshRenderer>().material.color = color;
+            }
+        }
+    }
+}
