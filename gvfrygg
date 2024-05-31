@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>填写简历信息</title>
+</head>
+<body>
+    <h1>论迹</h1>
+    <div>
+        <h2>基本信息</h2>
+        <img src="https://img2.baidu.com/it/u=978276174,890356570&fm=253&fmt=auto&app=120&f=JPEG?w=712&h=500" alt="" width="200" height="200">
+
+       <span><p>求职意向：C++开发</p></span>
+       <span><p>联系电话：123456789</p></span>
+       <span><p>个人邮箱：123456789@.com</p></span>
+       <span><p><a href="https://gitee.com/pepper-cloth">我的gitee</a></p></span>
+       <span><p><a href="https://blog.csdn.net/2303_80341387?spm=1000.2115.3001.5343">我的博客</a></p></span>
+    </div>
+
+    <div>
+        <h2>教育背景</h2>
+        <ol>
+            <li>2000-2006 xxx小学 小学</li>
+            <li>2006-2009 xxx初中 初中</li>
+            <li>2009-2012 xxx高中 高中</li>
+            <li>2012-2016 xxx大学 计算机专业 本科</li>
+        </ol>
+    </div>
+
+    <div>
+        <h2>专业技能</h2>
+        <ul>
+            <li>掌握C++基础语法扎实，已经熟练刷题</li>
+            <li>常见的数据结构都可以独立实现并熟练应用</li>
+            <li>熟知计算机网络理论，并且可以独立排查常见问题</li>
+            <li>掌握Web开发能力，并且独立开发了学校的留言墙功能</li>
+        </ul>
+    </div>
+
+    <div>
+        <h2>我的项目</h2>
+        <ol>
+            <h3><li>留言墙</li></h3>
+            <p>开发时间：2023年4月1日 ~ 2023年4月28日</p>
+            <p>功能介绍</p>
+            <ul>
+                <li>支持留言发布</li>
+                <li>支持匿名留言</li>
+            </ul>
+        </ol>
+
+        <ol>
+            <h3><li>学习小助手</li></h3>
+            <p>开发时间：2023年6月1日 ~ 2023年6月28日</p>
+            <p>功能介绍</p>
+            <ul>
+                <li>支持错题检索</li>
+                <li>支持同学探讨</li>
+            </ul>
+        </ol>
+    </div>
+
+    <div>
+        <h2>个人评价</h2>
+        <p>热爱生活，热爱编程</p>
+    </div>
+</body>
+</html>
