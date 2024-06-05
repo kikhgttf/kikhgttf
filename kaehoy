@@ -1,0 +1,31 @@
+import org.example.Pojo.Result;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+ 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+ 
+@RestController
+public class MyCookie {
+ 
+    //Session 跟踪技术
+    @GetMapping("getSession")
+    public Result getSession(HttpSession session){
+        session.setAttribute("getSession","xbs");
+        //此时就会自动响应一个JSESSIONID给客户端
+        return  Result.success();
+    }
+ 
+    @GetMapping("takeSession")
+    public Result takeSession(HttpServletRequest request){
+        //客户端再次发送请求时，就会携带一个JSESSIONID给服务器
+        //接着服务端就会根据该JSESSIONID来映射一个唯一的session对象，
+        //该session对象一直存储在服务器中。
+        HttpSession session = request.getSession();
+        //从session中获取数据
+        Object get = session.getAttribute("getSession");
+        return Result.success(get);
+    }
+}
