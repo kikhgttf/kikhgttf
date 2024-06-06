@@ -1,0 +1,24 @@
+.main{
+    padding-top: 10px;
+    margin: 30px;
+    height: 260px;
+    transition: all 3s;
+    display: flex;
+    justify-content: space-around;
+}
+.main a{
+    text-decoration: none;
+}
+.main a:hover{
+    box-shadow: 0 16px 32px 0 rgba(67, 23, 154, 0.15);/* 鼠标悬浮时盒子出现的阴影 */
+	transform: translate(0, 5px);
+}
+.main img{
+    width:200px;
+    height: 260px;
+}
+.main p{
+    font-size: 20px;
+    color: #9ACD32;
+}
+ 
