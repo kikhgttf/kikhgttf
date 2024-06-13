@@ -1,0 +1,12 @@
+<div id="h5panel" runat="server" >
+<asp:TextBox ID="x_fileid" style="display:none;" runat="server"></asp:TextBox>
+<asp:TextBox ID="current" Text="0" style="display:none;" runat="server"></asp:TextBox>
+<asp:TextBox ID="duration" Text="0" style="display:none;" runat="server"></asp:TextBox>
+<asp:TextBox ID="mname" style="display:none;" runat="server"></asp:TextBox>
+<asp:TextBox ID="x_mp4url" style="display:none;" runat="server"></asp:TextBox>
+<asp:TextBox ID="x_CoverUrl" style="display:none;" runat="server"></asp:TextBox>
+<asp:TextBox ID="x_playMark" style="display:none;" runat="server"></asp:TextBox>
+<asp:TextBox ID="x_lasttime" style="display:none;" runat="server"></asp:TextBox>
+<asp:TextBox ID="confirmflag" Text="0" runat="server" style="display:none;" ></asp:TextBox>
+<asp:TextBox ID="playMarkflag" Text="0" runat="server" style="display:none;" ></asp:TextBox>
+<asp:TextBox ID="x_videocount" Text="0" style="display:none;" runat="server"></asp:TextBox>
