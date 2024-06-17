@@ -1,0 +1,21 @@
+
+<view class="cart-foter">
+  <view class="allChecked">
+    <image wx:if="{{!isCheckAll}}" src="{{imgUrl}}/upload/20220608/uncheck.png" bindtap="selectAll" lazy-load="true" class="checkImg"></image>
+    <image wx:else src="{{imgUrl}}/upload/20220608/checked.png" lazy-load="true" bindtap="selectAll" class="checkImg"></image>
+    <view class="allCheckText">全选</view>
+  </view>
+
+  <view class="middlePrice">
+
+    <view class="priceBox">
+      <text class="hjTitle">合计:</text>
+      <text class="symbol">￥</text>
+      <text class="priceAll">￥198</text>
+    </view>
+
+    <view class="coupon">
+      <text>优惠:</text>
+      <text>￥</text>
+      <text>{{finalCou}}</text>
+      <text class="seeDetail">查看明细</text>
