@@ -1,0 +1,33 @@
+# -----------------------------正题--------------------------------
+struct_openTime = "2023-4-28 17:20:00"
+openTime = time.strptime(struct_openTime, "%Y-%m-%d %H:%M:%S")
+openTime = time.mktime(openTime)
+request_cnt = 0
+while True:
+    # nowTime = int(time.mktime(time.localtime()))
+    print(time.time(), openTime)
+    if time.time() >= openTime:
+        # print(nowTime, openTime,time.time())
+        print("------------------------------")
+        print(time.time(), openTime)
+        print("ok Try to grab seat!")
+        grab_time = time.localtime(time.time())
+        ts = time.strftime("%Y-%m-%d %H:%M:%S", grab_time)
+        print('当前时间是： ' + ts)
+        request_cnt += 1
+        res = requests.post(url=url, headers=header, json=data3)
+        tm = res.elapsed.total_seconds()
+        print(tm)
+        print(res.status_code)
+        print(res.text)
+        # break
+        if str(res.text).count("true"):
+            print("恭喜你！抢座成功！程序即将结束......")
+            break
+        else:
+            time.sleep(0.2)
+        print("------------------------------\n\n")
+    if request_cnt >= 5:  # 防止请求过多 被老师XX 所以这里我只敢 “最多” 请求5次
+        break  # 另一个作用是避免图书馆服务器有延迟 加上上面的sleep 延迟时间可以控制在 5*0.2s = 1s 内 而且避免了过多的请求（程序1秒内发送的请求是很可怕的数量）
+print("程序结束成功！")
+
